@@ -1,0 +1,30 @@
+//sensorde gas
+int gas;
+void setup()
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  gas = analogRead(A0);
+  Serial.println(gas);
+  delay(500);
+}
+
+//sensor con piezo
+int gas;
+int piezo=13;
+void setup()
+{
+ pinMode(A0,INPUT);
+  pinMode(piezo, OUTPUT);
+}
+    void loop()
+    {
+      gas=analogRead(A0);
+      if (gas>=200)
+      {
+        tone(piezo,523,200);
+        delay(500);
+      }
+    }
